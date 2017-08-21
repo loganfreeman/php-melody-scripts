@@ -22,6 +22,7 @@ function sig_handler($signo)
      switch ($signo) {
          case SIGTERM:
              // handle shutdown tasks
+             echo "caught SIGTERM";
              exit;
              break;
          case SIGHUP:
@@ -69,7 +70,7 @@ $spider->getDispatcher()->addListener(
     SpiderEvents::SPIDER_CRAWL_USER_STOPPED,
     function (Event $event) {
         echo "\nCrawl aborted by user.\n";
-        done();
+        //done();
         //exit();
     }
 );
